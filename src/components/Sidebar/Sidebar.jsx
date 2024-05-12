@@ -1,36 +1,42 @@
-import React from 'react';
-import './Sidebar.css';
+import React, { useState } from 'react';
 import { SidebarData } from '../../data/Data';
-import { UilSignOutAlt } from "@iconscout/react-unicons";
+import { UilSignOutAlt, UilChart } from "@iconscout/react-unicons";
+import './Sidebar.css';
 
 function Sidebar() {
-  return (
-    <div className='Sidebar'>
-        <div className='logo'>
-            <img src="" alt="logo" />
-            <span>
-                Relat<span>ó</span>rios
-            </span>
-        </div>
 
-        <div className='menu'>
-            {SidebarData.map((item, index) => {
-                return (
-                    <div className='menuItem'>
-                        <item.icon/>
-                        <span>
-                            {item.heading}
-                        </span>
-                    </div>
-                )
-            })}
+    const [selected, setSelected] = useState(0);
 
-            <div className='menuItem'>
-                <UilSignOutAlt/>
+    return (
+        <div className='Sidebar'>
+            <div className='logo'>
+                <UilChart/>
+                <span>
+                    Relatórios
+                </span>
+            </div>
+
+            <div className='menu'>
+                {SidebarData.map((item, index) => {
+                    return (
+                        <div className={selected===index?'menuItem active' : 'menuItem'} 
+                        key={index}
+                        onClick={()=>setSelected(index)}
+                        >
+                            <item.icon/>
+                            <span>
+                                {item.heading}
+                            </span>
+                        </div>
+                    )
+                })}
+
+                <div className='menuItem'>
+                    <UilSignOutAlt/>
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Sidebar

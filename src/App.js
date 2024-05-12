@@ -1,4 +1,5 @@
 import './App.css';
+import Dashboard from './components/Dashboard/Dashboard';
 import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
         <div className='AppGlass'>
           <Sidebar/>
+          <Dashboard/>
         </div>
     </div>
   );
