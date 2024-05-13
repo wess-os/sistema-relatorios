@@ -26,11 +26,11 @@ export const CardsData = [
     {
         title: 'Vendas',
         color: {
-            backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
-            boxShadow: "0px 10px 20px 0px #e0c6f5"
+            backGround: "linear-gradient(180deg, #1E90FF 0%, #4169E1 100%)",
+            boxShadow: "0px 10px 20px 0px #87CEEB"
         },
         barValue: 70,
-        value: "25,970",
+        value: "25.970,00",
         png: UilUsdSquare,
         series: [
             {
@@ -42,11 +42,11 @@ export const CardsData = [
     {
         title: 'Vendas',
         color: {
-            backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
-            boxShadow: "0px 10px 20px 0px #FDC0C7"
+            backGround: "linear-gradient(180deg, #6495ED 0%, #4169E1 100%)",
+            boxShadow: "0px 10px 20px 0px #87CEEB"
         },
         barValue: 80,
-        value: "14,270",
+        value: "14.270,00",
         png: UilMoneyWithdrawal,
         series: [
             {
@@ -58,11 +58,11 @@ export const CardsData = [
     {
         title: 'Vendas',
         color: {
-            backGround: "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-            boxShadow: "0px 10px 20px 0px #F9D59B"
+            backGround: "linear-gradient(180deg, #00BFFF 0%, #4682B4 100%)",
+            boxShadow: "0px 10px 20px 0px #87CEEB"
         },
         barValue: 60,
-        value: "4,270",
+        value: "4.270,00",
         png: UilClipboardAlt,
         series: [
             {
