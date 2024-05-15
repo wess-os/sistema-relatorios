@@ -1,10 +1,10 @@
 import {
     UilEstate,
     UilUsersAlt,
-    UilClipboardAlt,
+    UilUser,
     UilPackage,
-    UilUsdSquare,
-    UilMoneyWithdrawal
+    UilReceipt,
+    UilDollarAlt
 } from "@iconscout/react-unicons";
 
 export const SidebarData = [
@@ -24,49 +24,49 @@ export const SidebarData = [
 
 export const CardsData = [
     {
-        title: 'Vendas',
+        title: 'Clientes',
         color: {
             backGround: "linear-gradient(180deg, #1E90FF 0%, #4169E1 100%)",
             boxShadow: "0px 10px 20px 0px #87CEEB"
         },
-        barValue: 70,
-        value: "25.970,00",
-        png: UilUsdSquare,
+        barValue: 105,
+        value: "52003",
+        png: UilUser,
         series: [
             {
-                name: "Vendas",
+                name: "Clientes",
                 data: [31, 40, 28, 51, 42, 109, 100],
             },
         ],
     },
     {
-        title: 'Vendas',
+        title: 'Ticket Médio',
         color: {
             backGround: "linear-gradient(180deg, #6495ED 0%, #4169E1 100%)",
             boxShadow: "0px 10px 20px 0px #87CEEB"
         },
-        barValue: 80,
-        value: "14.270,00",
-        png: UilMoneyWithdrawal,
+        barValue: 101,
+        value: "R$14.270,00",
+        png: UilReceipt,
         series: [
             {
-                name: "Vendas",
+                name: "Ticket Médio",
                 data: [10, 100, 50, 70, 80, 30, 40],
             },
         ],
     },
     {
-        title: 'Vendas',
+        title: 'Faturamento',
         color: {
             backGround: "linear-gradient(180deg, #00BFFF 0%, #4682B4 100%)",
             boxShadow: "0px 10px 20px 0px #87CEEB"
         },
-        barValue: 60,
-        value: "4.270,00",
-        png: UilClipboardAlt,
+        barValue: 98,
+        value: "R$4.270,00",
+        png: UilDollarAlt,
         series: [
             {
-                name: "Vendas",
+                name: "Faturamento",
                 data: [10, 25, 15, 30, 12, 15, 20],
             },
         ],
