@@ -13,13 +13,14 @@
 .Table:first-child {
   border-radius: 0.7rem !important;
 }
-.status {
-  padding: 8px;
-  border-radius: 9px;
-}
 
-.Details {
-  color: #00b5ff !important;
+.buttonDetalhes {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(221, 221, 221);
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -28,7 +29,6 @@
     margin-top: 2rem;
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .Table {

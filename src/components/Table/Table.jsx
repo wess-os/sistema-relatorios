@@ -8,45 +8,38 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
 
-function createData(name, trackingId, date, status) {
-  return { name, trackingId, date, status };
+function createData(cidade, clientes, ticket, oldTicket, faturamento, oldFaturamento) {
+  return { cidade, clientes, ticket, oldTicket, faturamento, oldFaturamento };
 }
 
 const rows = [
-  createData("Joaozinho", 18908424, "02/03/2022", "Instalado"),
-  createData("Marquinhu", 18908424, "04/03/2022", "Cancelado"),
-  createData("Fabinho", 18908424, "01/03/2022", "Instalado"),
-  createData("Gabrielzinho", 18908421, "05/03/2022", "Aberto"),
+  createData("AFONSO CLÁUDIO", 2456, 97, 96, 1245, 1223),
+  createData("BREJETUBA", 1345, 97, 98, 1245, 1245),
+  createData("CACHOEIRO DE ITAPEMIRIM", 4567, 97, 97, 1245, 1345),
+  createData("CHALÉ", 1456, 97, 95, 1245, 1243),
 ];
 
+const makeStyle = (atual, anterior) => {
 
-const makeStyle=(status)=>{
-  if(status === 'Instalado')
-  {
-    return {
-      background: 'rgb(145 254 159 / 47%)',
-      color: 'green'
-    }
+  let textColor;
+
+  if (atual > anterior) {
+    textColor = 'green';
+  } else if (atual < anterior) {
+    textColor = 'red';
+  } else {
+    textColor = '#41AEFE';
   }
-  else if(status === 'Cancelado')
-  {
-    return{
-      background: '#ffadad8f',
-      color: 'red'
-    }
-  }
-  else{
-    return{
-      background: '#59bfff',
-      color: 'white'
-    }
-  }
-}
+
+  return {
+    color: textColor
+  };
+};
 
 export default function BasicTable() {
   return (
     <div className="Table">
-      <h3>Destaques</h3>
+      <h3></h3>
       <TableContainer
         component={Paper}
         style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
@@ -54,26 +47,28 @@ export default function BasicTable() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Vendedor</TableCell>
-              <TableCell align="left">Protocolo</TableCell>
-              <TableCell align="left">Data</TableCell>
-              <TableCell align="left">Status</TableCell>
+              <TableCell>Cidade</TableCell>
+              <TableCell align="left">Clientes</TableCell>
+              <TableCell align="left">Ticket Médio</TableCell>
+              <TableCell align="left">Faturamento</TableCell>
+              <TableCell align="left">Detalhes</TableCell>
             </TableRow>
           </TableHead>
           <TableBody style={{ color: "white" }}>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.cidade}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.cidade}
                 </TableCell>
-                <TableCell align="left">{row.trackingId}</TableCell>
-                <TableCell align="left">{row.date}</TableCell>
+                <TableCell align="left">{row.clientes}</TableCell>
+                <TableCell align="left" className="ticket" style={makeStyle(row.ticket, row.oldTicket)}>{formatCurrency(row.ticket)}</TableCell>
                 <TableCell align="left">
-                  <span className="status" style={makeStyle(row.status)}>{row.status}</span>
+                  <span className="faturamento" style={makeStyle(row.faturamento, row.oldFaturamento)}>{formatCurrency(row.faturamento)}</span>
                 </TableCell>
+                <TableCell align="left" className="detalhes"><button className="buttonDetalhes">Ver</button></TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -81,4 +76,11 @@ export default function BasicTable() {
       </TableContainer>
     </div>
   );
+}
+
+function formatCurrency(value) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(value);
 }
