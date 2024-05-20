@@ -22,17 +22,22 @@ const rows = [
 const makeStyle = (atual, anterior) => {
 
   let textColor;
+  let direction;
 
   if (atual > anterior) {
     textColor = 'green';
+    direction = 'up';
   } else if (atual < anterior) {
     textColor = 'red';
+    direction = 'down';
   } else {
     textColor = '#41AEFE';
+    direction = '';
   }
 
   return {
-    color: textColor
+    color: textColor,
+    direction: direction
   };
 };
 
@@ -51,7 +56,6 @@ export default function BasicTable() {
               <TableCell align="left">Clientes</TableCell>
               <TableCell align="left">Ticket Médio</TableCell>
               <TableCell align="left">Faturamento</TableCell>
-              <TableCell align="left">Detalhes</TableCell>
             </TableRow>
           </TableHead>
           <TableBody style={{ color: "white" }}>
@@ -64,11 +68,18 @@ export default function BasicTable() {
                   {row.cidade}
                 </TableCell>
                 <TableCell align="left">{row.clientes}</TableCell>
-                <TableCell align="left" className="ticket" style={makeStyle(row.ticket, row.oldTicket)}>{formatCurrency(row.ticket)}</TableCell>
-                <TableCell align="left">
-                  <span className="faturamento" style={makeStyle(row.faturamento, row.oldFaturamento)}>{formatCurrency(row.faturamento)}</span>
+                <TableCell align="left" className="ticket" style={makeStyle(row.ticket, row.oldTicket)}>
+                  {formatCurrency(row.ticket)}
+                  {/* Renderizando a seta aqui */}
+                  {makeStyle(row.ticket, row.oldTicket).direction === 'up'? '⬆' : makeStyle(row.ticket, row.oldTicket).direction === 'down'? '⬇' : '⬌'}
                 </TableCell>
-                <TableCell align="left" className="detalhes"><button className="buttonDetalhes">Ver</button></TableCell>
+                <TableCell align="left">
+                  <span className="faturamento" style={makeStyle(row.faturamento, row.oldFaturamento)}>
+                    {formatCurrency(row.faturamento)}
+                    {/* Renderizando a seta aqui */}
+                    {makeStyle(row.faturamento, row.oldFaturamento).direction === 'up'? '⬆' : makeStyle(row.faturamento, row.oldFaturamento).direction === 'down'? '⬇' : '⬌'}
+                  </span>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
